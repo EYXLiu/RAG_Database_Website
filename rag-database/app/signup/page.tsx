@@ -2,8 +2,10 @@
 import { signup } from '../actions'
 import { useState } from 'react'
 import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+    const router = useRouter();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const handleSubmit = async (event: React.FormEvent) => {
@@ -25,7 +27,7 @@ export default function LoginPage() {
     return (
       <div className="max-w-sm mx-auto p-6 border border-gray-300 rounded-lg bg-white mt-24">
         <button 
-            onClick={() => redirect('/')} 
+            onClick={() => router.back()} 
             className="absolute top-2 left-4 p-2 text-gray-600 hover:underline cursor-pointer"
         >
             Back
