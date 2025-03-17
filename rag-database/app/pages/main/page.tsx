@@ -17,7 +17,7 @@ export default function Home() {
                 }
             } catch (error) {
                 console.log("Error: ", error);
-                setMessage("Failed to fetch");
+                setMessage("Backend seems to be offline, try again in a couple of minutes");
             }
         };
         setMes();

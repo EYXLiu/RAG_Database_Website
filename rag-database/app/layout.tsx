@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "RAG Website",
-  description: "Setting up",
+  description: "Website",
 };
 
 interface RootLayoutProps {
