@@ -2,6 +2,8 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
 
+import GetVal from './client/sentence';
+
 export default async function PrivatePage() {
   const supabase = await createClient()
 
@@ -10,5 +12,10 @@ export default async function PrivatePage() {
     redirect('/')
   }
 
-  return <p>Hello {data.user.email}</p>
+  return (
+    <div>
+      <p>Hello {data.user.email}</p>
+      <GetVal m="hello"/>
+    </div>
+  )
 }
