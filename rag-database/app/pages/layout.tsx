@@ -1,18 +1,4 @@
-// layout.tsx (or similar layout file)
-
-import { Geist, Geist_Mono } from "next/font/google";
 import { logout } from "../actions";
-
-// Load the Geist fonts
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 interface RootLayoutProps {
   children: React.ReactNode;
