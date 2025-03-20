@@ -2,7 +2,7 @@
 Refer to [RAG_Database_Backend](https://github.com/EYXLiu/RAG_Database_Backend) for the Python APIs
 
 # About
-* Currently deployed on ![https://rag-database-website-t3i7.vercel.app/](https://rag-database-website-t3i7.vercel.app/)
+* Currently deployed on [https://rag-database-website-t3i7.vercel.app/](https://rag-database-website-t3i7.vercel.app/)
 * NextJS SSR and SSG pages for the website
 * Uses Typescript and Tailwind for best practices
 * Uses Supabase Authentication and Middleware for sign-in purposes, to allow for users to save information that is private or not meant for public access (onto my supabase so please don't)
