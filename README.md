@@ -12,3 +12,5 @@ Refer to [RAG_Database_Backend](https://github.com/EYXLiu/RAG_Database_Backend) 
 
 # Deployment
 * Run `npm run dev` to run it on the localhost
+
+<small>hatsune miku</small>
