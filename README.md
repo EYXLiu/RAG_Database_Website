@@ -1,5 +1,5 @@
 # RAG Database Frontend
-Tech Stack: NextJS, Typescript, Tailwind CSS, Supabase Auth, Supabase Middleware, React, Vercel
+Tech Stack: NextJS App Router, Typescript, Tailwind CSS, Supabase Auth, Supabase Middleware, React, Vercel
 
 # About
 * Currently deployed on [https://rag-database-website-t3i7.vercel.app/](https://rag-database-website-t3i7.vercel.app/), site is probably down because cloud services cost money and the docker images are big 😔
