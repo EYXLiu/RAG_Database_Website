@@ -1,5 +1,5 @@
 # RAG Database Frontend
-Refer to [RAG_Database_Backend](https://github.com/EYXLiu/RAG_Database_Backend) for the Python APIs
+Tech Stack: NextJS, Typescript, Tailwind CSS, Supabase Auth, Supabase Middleware, React
 
 # About
 * Currently deployed on [https://rag-database-website-t3i7.vercel.app/](https://rag-database-website-t3i7.vercel.app/), site is probably down because cloud services cost money and the docker images are big 😔
@@ -15,3 +15,5 @@ Refer to [RAG_Database_Backend](https://github.com/EYXLiu/RAG_Database_Backend) 
 * Run `npm run dev` to run it on the localhost
 
 <sub>hatsune miku<sub/>
+
+#### Refer to [RAG_Database_Backend](https://github.com/EYXLiu/RAG_Database_Backend) for the Python APIs
