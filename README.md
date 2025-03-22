@@ -2,7 +2,7 @@
 Tech Stack: NextJS App Router, Typescript, Tailwind CSS, Supabase Auth, Supabase Middleware, React, Vercel
 
 # About
-* Currently deployed on [https://rag-database-website-t3i7.vercel.app/](https://rag-database-website-t3i7.vercel.app/), site is probably down because cloud services cost money and the docker images are big 😔
+* Currently deployed on [https://rag-database-website-t3i7.vercel.app/](https://rag-database-website-t3i7.vercel.app/), site is probably not usable because cloud services cost money and the docker images are big 😔
 * NextJS SSR and SSG pages for the website
 * Uses Typescript and Tailwind for best practices
 * Uses Supabase Authentication and Middleware for sign-in purposes, to allow for users to save information that is private or not meant for public access (onto my supabase so please don't)
