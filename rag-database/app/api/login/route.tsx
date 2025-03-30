@@ -1,17 +1,18 @@
-import { pipeline } from "@huggingface/transformers";
-
 const url = process.env.NEXT_PUBLIC_TEST_API_URL;
 
 export async function GET(request: Request) {
     try {
         const { searchParams } = new URL(request.url);
-        const extractor = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
-        const m: string = searchParams.get("message") ?? (() => { throw new Error("Missing required query parameter: message"); })();
-        const message: number[] = (await extractor(m, { pooling: "mean", normalize: true })).tolist();
-        const stringed: string[] = message.map(num => num.toString());
-        const a = await fetch(`${url}/sentence?text=${stringed}`, {
+        const email: string = searchParams.get("email") ?? (() => { throw new Error("Missing required query parameter: email"); })();
+        const password: string = searchParams.get("password") ?? (() => { throw new Error("Missing required query parameter: password"); })();
+        const a = await fetch(`${url}/user/get?email=${email}&password=${password}`, {
             method: 'GET',
         });
+
+        if (!a.ok) {
+            throw new Error(`HTTP error! Status: ${a.status}`);
+        };
+
         const data = await a.json()
         return new Response(
             JSON.stringify({ value: data }),
@@ -24,4 +25,4 @@ export async function GET(request: Request) {
             { status: 500, headers: { "Content-Type": "application/json" } }
         );
     }
-}
+ }
