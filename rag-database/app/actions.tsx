@@ -1,12 +1,11 @@
 'use server'
-
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
-import { createClient } from '@/utils/supabase/server'
+import { createServerClient } from '@/utils/custom/instance'
 
 export async function login(formData: FormData) {
-  const supabase = await createClient()
+  const instance = createServerClient()
 
   // type-casting here for convenience
   // in practice, you should validate your inputs
@@ -15,9 +14,9 @@ export async function login(formData: FormData) {
     password: formData.get('password') as string,
   }
 
-  const { error } = await supabase.auth.signInWithPassword(data)
-
-  if (error) {
+  try {
+    await instance.login(data.email, data.password);
+  } catch (error) {
     return { errorMessage: 'Failed to log in' };
   }
 
@@ -26,7 +25,7 @@ export async function login(formData: FormData) {
 }
 
 export async function signup(formData: FormData) {
-  const supabase = await createClient()
+  const instance = createServerClient()
 
   // type-casting here for convenience
   // in practice, you should validate your inputs 
@@ -36,16 +35,9 @@ export async function signup(formData: FormData) {
     password: formData.get('password') as string,
   }
 
-  const { error } = await supabase.auth.signUp({
-    ...data,
-    options: {
-      data: {
-        full_name: formData.get('name') as string
-      }
-    }
-  })
-
-  if (error) {
+  try {
+    await instance.signup(data.email, data.password);
+  } catch (error) {
     return { errorMessage: 'Email already in use' };
   }
 
@@ -54,15 +46,15 @@ export async function signup(formData: FormData) {
 }
 
 export async function logout() {
-    const supabase = await createClient()
+    const instance = await createServerClient()
   
     // type-casting here for convenience
     // in practice, you should validate your inputs
   
-    const { error } = await supabase.auth.signOut()
-  
-    if (error) {
-      redirect('/error')
+    try {
+      await instance.logout();
+    } catch (error) {
+      redirect('/hatsunemiku')
     }
   
     revalidatePath('/', 'layout')

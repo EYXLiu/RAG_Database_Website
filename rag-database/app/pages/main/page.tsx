@@ -1,32 +1,11 @@
-"use client"
-import { useEffect, useState } from "react";
-
-export default function Home() {
-    const [message, setMessage] = useState("");
-    useEffect(() => {
-        const setMes = async () => {
-            try {
-                const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/testFetch");
-                const data = await res.json();
-    
-                if (res.ok) {
-                    console.log(data);
-                    setMessage(data.value);
-                } else {
-                    setMessage("Please wait");
-                }
-            } catch (error) {
-                console.log("Error: ", error);
-                setMessage("Backend seems to be offline, try again in a couple of minutes");
-            }
-        };
-        setMes();
-    }, []);
-    
-
-  return (
-    <div>
-      <h1>{message || "Loading..."}</h1>
+import { cookies } from 'next/headers'
+ 
+export default async function Page() {
+  const cookieStore = await cookies()
+  return cookieStore.getAll().map((cookie) => (
+    <div key={cookie.name}>
+      <p>Name: {cookie.name}</p>
+      <p>Value: {cookie.value}</p>
     </div>
-  )
+  ))
 }
